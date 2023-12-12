@@ -10,6 +10,8 @@ export default function Item(props) {
             setCount(counter - 1)
     }
 
+
+
     return (
         <div className='fruit'>
             <div>{props.name}</div>

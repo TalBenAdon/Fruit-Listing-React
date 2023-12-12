@@ -50,3 +50,12 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
+
+
+
+
+.cart-content-div {
+  display: flex;
+  gap: 5rem;
+}

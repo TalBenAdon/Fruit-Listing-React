@@ -2,6 +2,7 @@ import React from "react"
 import ItemList from "./ItemList"
 import Menu from "./Menu"
 import { useState } from "react"
+import Item from "./Item"
 
 const fruits = [
     {
@@ -150,15 +151,24 @@ fruits.forEach((fruit => {
 }))
 
 
+
 export default function Content() {
     const [fruitsList, setFiltered] = useState(fruits)
     const handleColor = (color) => {
-        (color) ? setFiltered(fruits.filter(fruit => fruit.color == color)) : setFiltered(fruits)
+        (color) ? setFiltered(fruits.filter(fruit => fruit.color === color)) : setFiltered(fruits)
     }
+
+
+    const handleInput = (input) => {
+        console.log(input);
+        (input) ? setFiltered(fruits.filter(fruit => fruit.name.toLowerCase().includes(input))) : setFiltered(fruits)
+    }
+
 
     return (
         <div>
-            <Menu colors={colors} handleColor={handleColor} />
+
+            <Menu colors={colors} handleColor={handleColor} handleInput={handleInput} />
             <ItemList fruitsList={fruitsList} />
         </div>
     )
