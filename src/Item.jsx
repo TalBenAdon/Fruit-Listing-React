@@ -1,25 +1,47 @@
 import React from 'react'
-import { useState } from 'react'
 
 
-export default function Item(props) {
-    const [counter, setCount] = useState(0)
 
-    const handleMinus = () => {
-        if (counter > 0)
-            setCount(counter - 1)
+export default function Item({ cart, setCart, fruit }) {
+
+    const addToCart = () => {
+
+        const inCart = cart.find(item => item.id === fruit.id)
+        if (!inCart) {
+            const newCartItem = { ...fruit, amount: 1 }
+            const newCart = [...cart, newCartItem]
+            setCart(newCart)
+        } else {
+            inCart.amount++
+            setCart([...cart])
+        }
+
+    }
+
+
+    const ifInCart = () => {
+        const inCart = cart.find(item => item.id === fruit.id)
+        if (!inCart) {
+            return <button onClick={addToCart}>Add To Cart</button>
+        } else {
+            return <button onClick={addToCart}>+</button>
+        }
     }
 
 
 
     return (
+
         <div className='fruit'>
-            <div>{props.name}</div>
-            <div>{props.emoji}</div>
-            <div>{props.price}</div>
-            <button onClick={() => setCount(counter + 1)}>+</button>
-            <span>{counter}</span>
-            <button onClick={handleMinus}>-</button>
+            <div>{fruit.name}</div>
+            <div>{fruit.emoji}</div>
+            <div>{fruit.price}</div>
+            <div>
+                {ifInCart()}
+            </div>
+
+            {/* <button onClick={addToCart}>+</button> */}
+
         </div>
     )
 }

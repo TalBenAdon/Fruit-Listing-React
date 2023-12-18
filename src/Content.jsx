@@ -152,7 +152,7 @@ fruits.forEach((fruit => {
 
 
 
-export default function Content() {
+export default function Content(props) {
     const [fruitsList, setFiltered] = useState(fruits)
     const handleColor = (color) => {
         (color) ? setFiltered(fruits.filter(fruit => fruit.color === color)) : setFiltered(fruits)
@@ -160,6 +160,7 @@ export default function Content() {
 
 
     const handleInput = (input) => {
+
         console.log(input);
         (input) ? setFiltered(fruits.filter(fruit => fruit.name.toLowerCase().includes(input))) : setFiltered(fruits)
     }
@@ -169,7 +170,7 @@ export default function Content() {
         <div>
 
             <Menu colors={colors} handleColor={handleColor} handleInput={handleInput} />
-            <ItemList fruitsList={fruitsList} />
+            <ItemList fruitsList={fruitsList} setCart={props.setCart} cart={props.cart} addToCart={props.addToCart} />
         </div>
     )
 }
