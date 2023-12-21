@@ -1,10 +1,13 @@
 import Item from './Item'
+import DataContext from './context/DataContext'
+import { useContext } from 'react'
 
 
 
 
+export default function ItemList() {
 
-export default function ItemList({ cart, setCart, fruitsList, addToCart }) {
+    const { items } = useContext(DataContext)
 
 
 
@@ -13,8 +16,8 @@ export default function ItemList({ cart, setCart, fruitsList, addToCart }) {
 
     return (
         <div className='itemList'>
-            {fruitsList.map((fruit) => {
-                return <Item key={fruit.id} fruit={fruit} cart={cart} setCart={setCart} addToCart={addToCart} />
+            {items.map((item) => {
+                return <Item key={item.id} item={item} />
             })}
         </div>
     )

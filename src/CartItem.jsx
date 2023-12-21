@@ -2,10 +2,9 @@ import React from 'react'
 import DataContext from './context/DataContext'
 import { useContext } from 'react'
 
+export default function CartItem({ item }) {
+    const { name, emoji, amount, id } = item
 
-export default function Item({ item }) {
-    let { name, emoji, price, id } = item
-    // const valueFromContext = {cart, setCart}
     const { cart, setCart } = useContext(DataContext)
 
     const handlePlus = () => {
@@ -40,29 +39,17 @@ export default function Item({ item }) {
 
 
     return (
-
-        <div className='fruit'>
+        <div>
             <div>{name}</div>
             <div>{emoji}</div>
-            <div>{price}</div>
+
+            <div>{amount}</div>
             <div>
-                {cart[id]?.amount >= 1 ? <div><button onClick={handlePlus}>+</button>
-                    <span>{cart[id]?.amount || 0}</span>
+                <div><button onClick={handlePlus}>+</button>
+
                     <button onClick={handleMinus}>-</button>
-                </div> : <button onClick={handlePlus}>Add To Cart</button>}
-
-
+                </div>
             </div>
-
-
-
         </div>
     )
 }
-
-
-// Object.keys
-// Object.values
-// Object.entries
-
-// take the cart, in cartList map it to cartItem
