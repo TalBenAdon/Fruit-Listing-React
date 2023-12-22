@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react'
-
-=======
 import React from 'react'
 import Total from './Total'
 import CartList from './CartList'
 import DataContext from './context/DataContext'
 import { useContext } from 'react'
->>>>>>> 18e5b6b0565a554665c2d349cda43cf5c8a334f7
 
 export default function Cart() {
 
