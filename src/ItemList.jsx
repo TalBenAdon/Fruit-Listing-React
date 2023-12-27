@@ -1,13 +1,16 @@
 import Item from './Item'
 import DataContext from './context/DataContext'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import data from './data.js'
 
 
 
+export default function ItemList({ clicked }) {
 
-export default function ItemList() {
+    console.log(clicked);
+    // const { items } = useContext(DataContext)
 
-    const { items } = useContext(DataContext)
+    const [category, setDataCategory] = useState(clicked)
 
 
 
@@ -16,7 +19,7 @@ export default function ItemList() {
 
     return (
         <div className='itemList'>
-            {items.map((item) => {
+            {data[category].map((item) => {
                 return <Item key={item.id} item={item} />
             })}
         </div>

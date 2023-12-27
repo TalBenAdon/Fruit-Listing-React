@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 
 
 import ItemList from "./ItemList"
-
+import Categories from "./Categories"
 
 
 
@@ -12,7 +12,7 @@ import ItemList from "./ItemList"
 export default function Content() {
 
 
-
+    const [clicked, setClicked] = useState()
 
 
 
@@ -21,9 +21,10 @@ export default function Content() {
 
     return (
         <div>
+            {clicked ? <ItemList clicked={clicked} /> : <Categories setClicked={setClicked} />}
 
 
-            <ItemList />
+
         </div>
     )
 }
