@@ -9,10 +9,10 @@ import Categories from "./Categories"
 
 
 
-export default function Content() {
+export default function Content({ clicked, setClicked, categories, setCategories }) {
 
 
-    const [clicked, setClicked] = useState()
+
 
 
 
@@ -20,10 +20,12 @@ export default function Content() {
 
 
     return (
+
         <div>
-            {clicked ? <ItemList clicked={clicked} /> : <Categories setClicked={setClicked} />}
+            <button onClick={() => setClicked()}>Back</button>
+            {clicked ? <ItemList clicked={clicked} setClicked={setClicked} /> : <Categories categories={categories} setCategories={setCategories} setClicked={setClicked} />}
 
-
+            {/* <productInfo/> */}
 
         </div>
     )

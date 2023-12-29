@@ -5,17 +5,20 @@ import DataContext from './context/DataContext'
 
 
 
+
 export default function Layout() {
     const [cart, setCart] = useState({})
-    const [items, setItems] = useState([])
+    // const [items, setItems] = useState([])
+
 
 
     return (
-        <DataContext.Provider value={{ cart, setCart, items, setItems }}>
+        <DataContext.Provider value={{ cart, setCart }}>
 
             <div className='cart-content-div'>
+                {/* <Back setClicked={setClicked} /> */}
                 <Cart />
-                <Content />
+                <Content setClicked={setClicked} clicked={clicked} />
 
             </div>
         </DataContext.Provider>
