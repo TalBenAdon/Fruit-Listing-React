@@ -14,12 +14,12 @@ export default function Categories({ setClicked }) {
     }, [])
 
 
-    console.log(categories);
+
     return (
         <div>
             {Object.keys(categories).map(category => {
-                console.log(category)
-                return <button key={category} onClick={() => setClicked(category)}><img src={categories[category]} /></button>
+
+                return <button key={category} onClick={() => setClicked(category)}><a href={'/categories/' + category}><img src={categories[category]} /></a></button>
             })}
         </div>
     )

@@ -14,7 +14,7 @@ export default function ItemList({ clicked }) {
 
     useEffect(() => {
         fetch(`https://jbh-mockserver.onrender.com/categories/${clicked}`)
-            .then(response => response.json())
+            .then(j => j.json())
             .then(res => setItems(res))
     }), []
     // useEffect(() => {

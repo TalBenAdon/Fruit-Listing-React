@@ -12,13 +12,14 @@ export default function Layout() {
 
 
 
+
     return (
         <DataContext.Provider value={{ cart, setCart }}>
 
             <div className='cart-content-div'>
                 {/* <Back setClicked={setClicked} /> */}
                 <Cart />
-                <Content setClicked={setClicked} clicked={clicked} />
+                <Content />
 
             </div>
         </DataContext.Provider>
